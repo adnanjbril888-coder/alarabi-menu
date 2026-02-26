@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم العربي - المنيو الرسمي</title>
+    <style>
+        :root { --main: #e67e22; --dark: #2c3e50; --price: #27ae60; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 90px; }
+        header { background: var(--dark); color: white; text-align: center; padding: 30px; border-bottom: 4px solid var(--main); }
+        .container { padding: 15px; max-width: 600px; margin: auto; }
+        .section-title { color: var(--dark); border-right: 4px solid var(--main); padding-right: 10px; margin: 20px 0; font-weight: bold; }
+        
+        .item { background: white; border-radius: 15px; margin-bottom: 15px; display: flex; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); align-items: center; }
+        .item img { width: 100px; height: 100px; object-fit: cover; }
+        .item-details { padding: 10px; flex: 1; }
+        .item-details h3 { margin: 0; font-size: 1.1rem; color: #333; }
+        .item-price { color: var(--price); font-weight: bold; display: block; margin-top: 5px; }
+        
+        .add-btn { background: var(--main); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; margin-left: 10px; font-weight: bold; }
+
+        .cart-bar { position: fixed; bottom: 15px; left: 5%; width: 90%; background: #25d366; color: white; padding: 15px; border-radius: 50px; text-align: center; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 1000; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>مطعم العربي 🍴</h1>
+    <p>أطيب الوجبات الموريتانية والأصيلة</p>
+</header>
+
+<div class="container">
+    <div class="section-title">السندوتشات والوجبات</div>
+    
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=200" alt="شاورما">
+        <div class="item-details">
+            <h3>شاورما العربي المميزة</h3>
+            <span class="item-price">120 أوقية</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('شاورما', 120)">+</button>
+    </div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=200" alt="كباب">
+        <div class="item-details">
+            <h3>كباب مشوي فاخر</h3>
+            <span class="item-price">70 أوقية</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('كباب', 70)">+</button>
+    </div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" alt="برجر">
+        <div class="item-details">
+            <h3>همبرجر (لحم/دجاج)</h3>
+            <span class="item-price">100 أوقية</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('همبرجر', 100)">+</button>
+    </div>
+
+    <div class="section-title">قسم الدجاج المشوي</div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200" alt="دجاج">
+        <div class="item-details">
+            <h3>دجاجة كاملة مشوية</h3>
+            <span class="item-price">450 أوقية</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('دجاجة كاملة', 450)">+</button>
+    </div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=200" alt="نص دجاجة">
+        <div class="item-details">
+            <h3>نص دجاجة مشوية</h3>
+            <span class="item-price">230 أوقية</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('نص دجاجة', 230)">+</button>
+    </div>
+
+    <div class="section-title">البيتزا</div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="بيتزا">
+        <div class="item-details">
+            <h3>بيتزا العربي (لحم أو دجاج)</h3>
+            <span class="item-price">200 أوقية</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('بيتزا', 200)">+</button>
+    </div>
+</div>
+
+<div id="cart-bar" class="cart-bar" onclick="sendToWhatsApp()">
+    تأكيد الطلب عبر واتساب - الإجمالي: <span id="total-price">0</span> أوقية
+</div>
+
+<script>
+    let cart = [];
+    let total = 0;
+    const phone = "22232552598"; // رقمك تم تحديثه بنجاح
+
+    function addToCart(name, price) {
+        cart.push(name);
+        total += price;
+        document.getElementById('cart-bar').style.display = 'block';
+        document.getElementById('total-price').innerText = total;
+    }
+
+    function sendToWhatsApp() {
+        let message = "طلبية جديدة من مطعم العربي:\n------------------\n";
+        message += cart.join("\n") + "\n------------------\n";
+        message += "الإجمالي: " + total + " أوقية جديدة";
+        window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    }
+</script>
+
+</body>
+</html>
