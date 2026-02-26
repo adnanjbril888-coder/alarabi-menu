@@ -5,100 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مطعم العربي - المنيو الرسمي</title>
     <style>
-        :root { --main: #e67e22; --dark: #2c3e50; --price: #27ae60; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 90px; }
+        :root { --main: #e67e22; --dark: #2c3e50; --price: #27ae60; --whatsapp: #25d366; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 90px; }
         header { background: var(--dark); color: white; text-align: center; padding: 30px; border-bottom: 4px solid var(--main); }
         .container { padding: 15px; max-width: 600px; margin: auto; }
-        .section-title { color: var(--dark); border-right: 4px solid var(--main); padding-right: 10px; margin: 20px 0; font-weight: bold; }
-        
-        .item { background: white; border-radius: 15px; margin-bottom: 15px; display: flex; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); align-items: center; }
-        .item img { width: 100px; height: 100px; object-fit: cover; }
-        .item-details { padding: 10px; flex: 1; }
+        .section-title { color: var(--dark); border-right: 4px solid var(--main); padding-right: 10px; margin: 25px 0 15px; font-weight: bold; font-size: 1.3rem; }
+        .item { background: white; border-radius: 15px; margin-bottom: 15px; display: flex; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); align-items: center; border: 1px solid #eee; }
+        .item img { width: 110px; height: 110px; object-fit: cover; }
+        .item-details { padding: 12px; flex: 1; }
         .item-details h3 { margin: 0; font-size: 1.1rem; color: #333; }
-        .item-price { color: var(--price); font-weight: bold; display: block; margin-top: 5px; }
-        
-        .add-btn { background: var(--main); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; margin-left: 10px; font-weight: bold; }
-
-        .cart-bar { position: fixed; bottom: 15px; left: 5%; width: 90%; background: #25d366; color: white; padding: 15px; border-radius: 50px; text-align: center; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 1000; }
+        .item-price { color: var(--price); font-weight: bold; display: block; margin-top: 5px; font-size: 1.1rem; }
+        .add-btn { background: var(--main); color: white; border: none; padding: 10px 18px; border-radius: 10px; cursor: pointer; margin-left: 10px; font-weight: bold; font-size: 1.2rem; }
+        .cart-bar { position: fixed; bottom: 15px; left: 5%; width: 90%; background: var(--whatsapp); color: white; padding: 15px; border-radius: 50px; text-align: center; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 999; }
+        .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
+        .modal-content { background: white; margin: 10% auto; padding: 25px; width: 85%; max-width: 400px; border-radius: 25px; text-align: center; }
+        .payment-info { background: #fff9f0; padding: 15px; border-radius: 15px; border: 1px dashed var(--main); margin-bottom: 15px; }
+        .alert-box { background: #fff3cd; color: #856404; padding: 12px; border-radius: 10px; font-size: 0.9rem; margin: 15px 0; border: 1px solid #ffeeba; }
+        .payment-option { display: block; width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>مطعم العربي 🍴</h1>
-    <p>أطيب الوجبات الموريتانية والأصيلة</p>
+    <p>أهلاً بكم.. نكهة الأصالة في كل وجبة</p>
 </header>
 
 <div class="container">
-    <div class="section-title">السندوتشات والوجبات</div>
-    
+    <div class="section-title">السندوتشات</div>
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=200" alt="شاورما">
-        <div class="item-details">
-            <h3>شاورما العربي المميزة</h3>
-            <span class="item-price">120 أوقية</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=400" alt="شاورما">
+        <div class="item-details"><h3>شاورما العربي</h3><span class="item-price">120 أوقية</span></div>
         <button class="add-btn" onclick="addToCart('شاورما', 120)">+</button>
     </div>
-
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=200" alt="كباب">
-        <div class="item-details">
-            <h3>كباب مشوي فاخر</h3>
-            <span class="item-price">70 أوقية</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400" alt="كباب">
+        <div class="item-details"><h3>كباب</h3><span class="item-price">70 أوقية</span></div>
         <button class="add-btn" onclick="addToCart('كباب', 70)">+</button>
     </div>
-
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" alt="برجر">
-        <div class="item-details">
-            <h3>همبرجر (لحم/دجاج)</h3>
-            <span class="item-price">100 أوقية</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=400" alt="ساندويش العربي">
+        <div class="item-details"><h3>ساندويش العربي</h3><p style="margin:0; font-size:0.8rem; color:#666;">محشي لحم وبطاطا مقلية</p><span class="item-price">70 أوقية</span></div>
+        <button class="add-btn" onclick="addToCart('ساندويش العربي', 70)">+</button>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="همبرجر">
+        <div class="item-details"><h3>همبرجر</h3><span class="item-price">100 أوقية</span></div>
         <button class="add-btn" onclick="addToCart('همبرجر', 100)">+</button>
     </div>
 
     <div class="section-title">قسم الدجاج المشوي</div>
-
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200" alt="دجاج">
-        <div class="item-details">
-            <h3>دجاجة كاملة مشوية</h3>
-            <span class="item-price">450 أوقية</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400" alt="دجاجة كاملة">
+        <div class="item-details"><h3>دجاجة كاملة</h3><span class="item-price">450 أوقية</span></div>
         <button class="add-btn" onclick="addToCart('دجاجة كاملة', 450)">+</button>
     </div>
-
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=200" alt="نص دجاجة">
-        <div class="item-details">
-            <h3>نص دجاجة مشوية</h3>
-            <span class="item-price">230 أوقية</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400" alt="نص دجاجة">
+        <div class="item-details"><h3>نص دجاجة</h3><span class="item-price">230 أوقية</span></div>
         <button class="add-btn" onclick="addToCart('نص دجاجة', 230)">+</button>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=400" alt="ربع دجاجة">
+        <div class="item-details"><h3>ربع دجاجة</h3><span class="item-price">120 أوقية</span></div>
+        <button class="add-btn" onclick="addToCart('ربع دجاجة', 120)">+</button>
     </div>
 
     <div class="section-title">البيتزا</div>
-
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="بيتزا">
-        <div class="item-details">
-            <h3>بيتزا العربي (لحم أو دجاج)</h3>
-            <span class="item-price">200 أوقية</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="بيتزا">
+        <div class="item-details"><h3>بيتزا (لحم أو دجاج)</h3><span class="item-price">200 أوقية</span></div>
         <button class="add-btn" onclick="addToCart('بيتزا', 200)">+</button>
     </div>
 </div>
 
-<div id="cart-bar" class="cart-bar" onclick="sendToWhatsApp()">
-    تأكيد الطلب عبر واتساب - الإجمالي: <span id="total-price">0</span> أوقية
+<div id="cart-bar" class="cart-bar" onclick="openPaymentModal()">
+    تأكيد الطلب - الإجمالي: <span id="total-price">0</span> أوقية
+</div>
+
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <h2 style="color: var(--dark);">تفاصيل الدفع</h2>
+        <div class="payment-info">رقم الدفع الموحد:<br><strong style="font-size: 1.6rem; color: #d35400;">48881186</strong></div>
+        <div class="alert-box">📢 <strong>تنبيه:</strong> يرجى إرسال <strong>لقطة شاشة</strong> للوصل عند فتح الواتساب لتأكيد طلبك.</div>
+        <p style="font-weight: bold;">اختر تطبيق التحويل:</p>
+        <button class="payment-option" style="background: #03a9f4; color: white;" onclick="finalizeOrder('بنكيلي')">بنكيلي 💳</button>
+        <button class="payment-option" style="background: #4caf50; color: white;" onclick="finalizeOrder('مصرفي')">مصرفي 🏦</button>
+        <button class="payment-option" style="background: #ff9800; color: white;" onclick="finalizeOrder('سداد')">سداد 📱</button>
+        <button style="background:none; border:none; color:#666; cursor:pointer; margin-top:15px; text-decoration: underline;" onclick="closePaymentModal()">إلغاء</button>
+    </div>
 </div>
 
 <script>
     let cart = [];
     let total = 0;
-    const phone = "22232552598"; // رقمك تم تحديثه بنجاح
+    const adminPhone = "22234858800"; // تم تحديث الرقم الجديد هنا
 
     function addToCart(name, price) {
         cart.push(name);
@@ -107,11 +108,16 @@
         document.getElementById('total-price').innerText = total;
     }
 
-    function sendToWhatsApp() {
-        let message = "طلبية جديدة من مطعم العربي:\n------------------\n";
-        message += cart.join("\n") + "\n------------------\n";
-        message += "الإجمالي: " + total + " أوقية جديدة";
-        window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    function openPaymentModal() { document.getElementById('paymentModal').style.display = 'block'; }
+    function closePaymentModal() { document.getElementById('paymentModal').style.display = 'none'; }
+
+    function finalizeOrder(method) {
+        let message = "طلبية جديدة من مطعم العربي:\n--------------------------\n";
+        message += cart.join("\n") + "\n--------------------------\n";
+        message += "💰 الإجمالي: " + total + " أوقية جديدة\n";
+        message += "💳 دفع عبر: " + method + "\n";
+        message += "📞 تم التحويل للرقم: 48881186\n\n📸 سأرسل لك صورة التحويل الآن..";
+        window.location.href = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
     }
 </script>
 
