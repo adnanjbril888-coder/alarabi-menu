@@ -28,10 +28,10 @@
         .alert-box { background: #fff3cd; color: #856404; padding: 12px; border-radius: 10px; font-size: 0.9rem; margin: 15px 0; border: 1px solid #ffeeba; }
         .payment-option { display: block; width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
 
-        /* تنسيق توقيع المبرمج عدنان */
         footer { text-align: center; padding: 20px 0; margin-top: 30px; border-top: 1px solid #ddd; }
-        .dev-tag { font-size: 0.9rem; color: #7f8c8d; text-decoration: none; display: inline-block; }
+        .dev-tag { font-size: 0.9rem; color: #7f8c8d; display: inline-block; text-decoration: none; transition: 0.3s; padding: 10px; }
         .dev-tag strong { color: var(--dark); border-bottom: 2px solid var(--main); }
+        .dev-tag:hover { transform: translateY(-3px); color: var(--whatsapp); }
     </style>
 </head>
 <body>
@@ -61,7 +61,24 @@
             <button class="btn-qty" onclick="updateQty('كباب', 70, 1)">+</button>
         </div>
     </div>
-    
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=400" alt="ساندويش العربي">
+        <div class="item-details"><h3>ساندويش العربي</h3><p style="margin:0; font-size:0.8rem; color:#666;">لحم وبطاطا مقلية</p><span class="item-price">70 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('ساندويش العربي', 70, -1)">-</button>
+            <span class="qty-val" id="qty-ساندويش العربي">0</span>
+            <button class="btn-qty" onclick="updateQty('ساندويش العربي', 70, 1)">+</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="همبرجر">
+        <div class="item-details"><h3>همبرجر</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('همبرجر', 100, -1)">-</button>
+            <span class="qty-val" id="qty-همبرجر">0</span>
+            <button class="btn-qty" onclick="updateQty('همبرجر', 100, 1)">+</button>
+        </div>
+    </div>
     <div class="item">
         <img src="adnan3.jpeg" alt="تاكوس">
         <div class="item-details"><h3>تاكوس</h3><span class="item-price">150 أوقية</span></div>
@@ -74,6 +91,24 @@
 
     <div class="section-title">قسم الدجاج المشوي</div>
     <div class="item">
+        <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400" alt="دجاجة كاملة">
+        <div class="item-details"><h3>دجاجة كاملة</h3><span class="item-price">450 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('دجاجة كاملة', 450, -1)">-</button>
+            <span class="qty-val" id="qty-دجاجة كاملة">0</span>
+            <button class="btn-qty" onclick="updateQty('دجاجة كاملة', 450, 1)">+</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400" alt="نص دجاجة">
+        <div class="item-details"><h3>نص دجاجة</h3><span class="item-price">230 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('نص دجاجة', 230, -1)">-</button>
+            <span class="qty-val" id="qty-نص دجاجة">0</span>
+            <button class="btn-qty" onclick="updateQty('نص دجاجة', 230, 1)">+</button>
+        </div>
+    </div>
+    <div class="item">
         <img src="adnan.jpeg" alt="ربع دجاجة">
         <div class="item-details"><h3>ربع دجاجة</h3><span class="item-price">120 أوقية</span></div>
         <div class="controls">
@@ -83,9 +118,20 @@
         </div>
     </div>
 
+    <div class="section-title">البيتزا</div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="بيتزا">
+        <div class="item-details"><h3>بيتزا (لحم أو دجاج)</h3><span class="item-price">200 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('بيتزا', 200, -1)">-</button>
+            <span class="qty-val" id="qty-بيتزا">0</span>
+            <button class="btn-qty" onclick="updateQty('بيتزا', 200, 1)">+</button>
+        </div>
+    </div>
+
     <div class="section-title">قسم العصائر الطبيعية 🍹</div>
     <div class="item">
-        <img src="adnan1.jpeg" alt="عصير">
+        <img src="adnan1.jpeg" alt="عصير برتقال">
         <div class="item-details"><h3>عصير برتقال طازج</h3><span class="item-price">100 أوقية</span></div>
         <div class="controls">
             <button class="btn-qty btn-minus" onclick="updateQty('عصير برتقال', 100, -1)">-</button>
@@ -93,10 +139,28 @@
             <button class="btn-qty" onclick="updateQty('عصير برتقال', 100, 1)">+</button>
         </div>
     </div>
+    <div class="item">
+        <img src="adnan2.jpeg" alt="عصير أفوكا">
+        <div class="item-details"><h3>عصير افوكا</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('عصير افوكا', 100, -1)">-</button>
+            <span class="qty-val" id="qty-عصير افوكا">0</span>
+            <button class="btn-qty" onclick="updateQty('عصير افوكا', 100, 1)">+</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="adnan4.jpeg" alt="عصير بنان">
+        <div class="item-details"><h3>عصير بنان</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('عصير بنان', 100, -1)">-</button>
+            <span class="qty-val" id="qty-عصير بنان">0</span>
+            <button class="btn-qty" onclick="updateQty('عصير بنان', 100, 1)">+</button>
+        </div>
+    </div>
 
     <footer>
         <a href="https://wa.me/22232552598" class="dev-tag">
-            تم التطوير بواسطة المبرمج <strong>عدنان</strong> 🛠️ <br> 📱 راسلني عبر الواتساب
+            تم التطوير بواسطة المبرمج <strong>عدنان</strong> 🛠️ <br> تواصل عبر الواتساب
         </a>
     </footer>
 </div>
@@ -120,7 +184,7 @@
 
 <script>
     let basket = {}; 
-    const adminPhone = "22234858800"; // رقم المطعم لتلقي الطلبات
+    const adminPhone = "22234858800";
 
     function updateQty(id, price, change) {
         if (!basket[id]) basket[id] = { p: price, q: 0 };
@@ -163,7 +227,7 @@
         message += "--------------------------\n";
         message += "💰 الإجمالي: " + document.getElementById('total-price').innerText + " أوقية جديدة\n";
         message += "💳 دفع عبر: " + method + "\n";
-        message += "📞 تم التحويل للرقم: 48881186\n\n📸 سأرسل لك صورة التحويل الآن..";
+        message += "📸 سأرسل لك صورة التحويل الآن..";
         window.location.href = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
     }
 </script>
