@@ -19,7 +19,7 @@
             background: var(--header-grad); 
             color: white; 
             text-align: center; 
-            padding: 45px 20px; 
+            padding: 40px 20px; 
             border-bottom: 6px solid var(--main);
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             position: relative;
@@ -27,14 +27,25 @@
 
         header h1 { 
             margin: 0; 
-            font-size: 2.8rem; 
+            font-size: 2.5rem; 
             background: linear-gradient(to bottom, #ffffff, #f39c12);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
         }
 
-        header p { margin-top: 10px; font-size: 1.2rem; color: #ecf0f1; opacity: 0.95; font-style: italic; }
+        .location-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #f39c12;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+        }
+
+        header p { margin-top: 8px; font-size: 1.1rem; color: #ecf0f1; opacity: 0.9; font-style: italic; }
 
         .container { padding: 15px; max-width: 600px; margin: auto; }
         
@@ -87,6 +98,7 @@
         .payment-option { display: block; width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; color: white; font-size: 1.1rem; }
 
         footer { text-align: center; padding: 30px 0; margin-top: 40px; border-top: 1px solid #eee; background: white; }
+        .address-footer { font-size: 0.85rem; color: #34495e; margin-bottom: 10px; font-weight: bold; }
         .dev-tag { font-size: 0.9rem; color: #7f8c8d; text-decoration: none; }
         .dev-tag strong { color: var(--main); }
     </style>
@@ -95,6 +107,7 @@
 
 <header>
     <h1>مطعم العربي 🍴</h1>
+    <div class="location-badge">📍 موريتانيا - نواديبو - كرفور مدريد</div>
     <p>نكهة الأصالة في كل وجبة</p>
 </header>
 
@@ -278,6 +291,7 @@
     </div>
 
     <footer>
+        <div class="address-footer">📍 موريتانيا .نواديبو .كرفور مدريد .مطعم العربي</div>
         <a href="https://wa.me/22232552598" class="dev-tag">
             تم التطوير بكل ❤️ بواسطة المبرمج <strong>عدنان</strong> 🛠️
         </a>
@@ -342,6 +356,7 @@
         message += "--------------------------\n";
         message += "💰 الإجمالي: " + document.getElementById('total-price').innerText + " أوقية\n";
         message += "💳 وسيلة الدفع: " + method + "\n";
+        message += "📍 العنوان: موريتانيا .نواديبو .كرفور مدريد\n";
         message += "📸 سأرسل صورة الوصل الآن..";
         window.location.href = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
     }
