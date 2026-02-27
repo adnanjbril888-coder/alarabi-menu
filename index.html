@@ -10,16 +10,38 @@
         header { background: var(--dark); color: white; text-align: center; padding: 30px; border-bottom: 4px solid var(--main); }
         .container { padding: 15px; max-width: 600px; margin: auto; }
         .section-title { color: var(--dark); border-right: 4px solid var(--main); padding-right: 10px; margin: 25px 0 15px; font-weight: bold; font-size: 1.3rem; }
-        .item { background: white; border-radius: 15px; margin-bottom: 15px; display: flex; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); align-items: center; border: 1px solid #eee; }
-        .item img { width: 110px; height: 110px; object-fit: cover; }
-        .item-details { padding: 12px; flex: 1; }
-        .item-details h3 { margin: 0; font-size: 1.1rem; color: #333; }
+        
+        /* ضبط متطور لتوحيد حجم العناصر والصور */
+        .item { 
+            background: white; 
+            border-radius: 15px; 
+            margin-bottom: 15px; 
+            display: flex; 
+            overflow: hidden; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            align-items: center; 
+            border: 1px solid #eee; 
+            height: 110px; /* توحيد ارتفاع كل البطاقات */
+        }
+        
+        .item img { 
+            width: 110px; 
+            height: 110px; 
+            object-fit: cover; /* لقص الصورة بشكل احترافي لتملأ المربع */
+            aspect-ratio: 1 / 1; 
+            flex-shrink: 0; /* منع الصورة من الانضغاط */
+            background-color: #fff;
+        }
+
+        .item-details { padding: 12px; flex: 1; overflow: hidden; }
+        .item-details h3 { margin: 0; font-size: 1.05rem; color: #333; }
+        .item-details p { margin: 0; font-size: 0.8rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .item-price { color: var(--price); font-weight: bold; display: block; margin-top: 5px; font-size: 1.1rem; }
         
-        .controls { display: flex; align-items: center; background: #f8f9fa; border-radius: 10px; margin-left: 10px; border: 1px solid #ddd; overflow: hidden; }
+        .controls { display: flex; align-items: center; background: #f8f9fa; border-radius: 10px; margin-left: 10px; border: 1px solid #ddd; overflow: hidden; flex-shrink: 0; }
         .btn-qty { background: var(--main); color: white; border: none; width: 35px; height: 35px; cursor: pointer; font-size: 1.2rem; font-weight: bold; }
         .btn-minus { background: #95a5a6; }
-        .qty-val { padding: 0 12px; font-weight: bold; min-width: 20px; text-align: center; color: var(--dark); }
+        .qty-val { padding: 0 10px; font-weight: bold; min-width: 20px; text-align: center; color: var(--dark); }
 
         .cart-bar { position: fixed; bottom: 80px; left: 5%; width: 90%; background: var(--whatsapp); color: white; padding: 15px; border-radius: 50px; text-align: center; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 999; }
         .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
@@ -52,6 +74,7 @@
             <button class="btn-qty" onclick="updateQty('شاورما العربي', 120, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400" alt="كباب">
         <div class="item-details"><h3>كباب</h3><span class="item-price">70 أوقية</span></div>
@@ -61,15 +84,17 @@
             <button class="btn-qty" onclick="updateQty('كباب', 70, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=400" alt="ساندويش العربي">
-        <div class="item-details"><h3>ساندويش العربي</h3><p style="margin:0; font-size:0.8rem; color:#666;">لحم وبطاطا مقلية</p><span class="item-price">70 أوقية</span></div>
+        <div class="item-details"><h3>ساندويش العربي</h3><p>لحم وبطاطا مقلية</p><span class="item-price">70 أوقية</span></div>
         <div class="controls">
             <button class="btn-qty btn-minus" onclick="updateQty('ساندويش العربي', 70, -1)">-</button>
             <span class="qty-val" id="qty-ساندويش العربي">0</span>
             <button class="btn-qty" onclick="updateQty('ساندويش العربي', 70, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="همبرجر">
         <div class="item-details"><h3>همبرجر</h3><span class="item-price">100 أوقية</span></div>
@@ -79,6 +104,7 @@
             <button class="btn-qty" onclick="updateQty('همبرجر', 100, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="adnan3.jpeg" alt="تاكوس">
         <div class="item-details"><h3>تاكوس</h3><span class="item-price">150 أوقية</span></div>
@@ -99,6 +125,7 @@
             <button class="btn-qty" onclick="updateQty('دجاجة كاملة', 450, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400" alt="نص دجاجة">
         <div class="item-details"><h3>نص دجاجة</h3><span class="item-price">230 أوقية</span></div>
@@ -108,6 +135,7 @@
             <button class="btn-qty" onclick="updateQty('نص دجاجة', 230, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="adnan.jpeg" alt="ربع دجاجة">
         <div class="item-details"><h3>ربع دجاجة</h3><span class="item-price">120 أوقية</span></div>
@@ -123,7 +151,7 @@
         <img src="sss.jpeg" alt="بلاط كريفيت">
         <div class="item-details">
             <h3>بلاط كريفيت</h3>
-            <p style="margin:0; font-size:0.8rem; color:#666;">مارو + فريت + أوردف</p>
+            <p>مارو + فريت + أوردف</p>
             <span class="item-price">250 أوقية</span>
         </div>
         <div class="controls">
@@ -154,6 +182,7 @@
             <button class="btn-qty" onclick="updateQty('عصير برتقال', 100, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="adnan2.jpeg" alt="عصير أفوكا">
         <div class="item-details"><h3>عصير افوكا</h3><span class="item-price">100 أوقية</span></div>
@@ -163,6 +192,7 @@
             <button class="btn-qty" onclick="updateQty('عصير افوكا', 100, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="adnan4.jpeg" alt="عصير بنان">
         <div class="item-details"><h3>عصير بنان</h3><span class="item-price">100 أوقية</span></div>
@@ -172,6 +202,7 @@
             <button class="btn-qty" onclick="updateQty('عصير بنان', 100, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="ff.jpeg" alt="عصير فريز">
         <div class="item-details"><h3>عصير فريز</h3><span class="item-price">100 أوقية</span></div>
@@ -181,6 +212,7 @@
             <button class="btn-qty" onclick="updateQty('عصير فريز', 100, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="kk.jpeg" alt="عصير كوكتيل">
         <div class="item-details"><h3>عصير كوكتيل</h3><span class="item-price">100 أوقية</span></div>
@@ -190,18 +222,20 @@
             <button class="btn-qty" onclick="updateQty('عصير كوكتيل', 100, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="ss.jpeg" alt="سلاط فواكه صغير">
-        <div class="item-details"><h3>سلاط فواكه (حجم صغير)</h3><span class="item-price">100 أوقية</span></div>
+        <div class="item-details"><h3>سلاط فواكه (صغير)</h3><span class="item-price">100 أوقية</span></div>
         <div class="controls">
             <button class="btn-qty btn-minus" onclick="updateQty('سلاط فواكه صغير', 100, -1)">-</button>
             <span class="qty-val" id="qty-سلاط فواكه صغير">0</span>
             <button class="btn-qty" onclick="updateQty('سلاط فواكه صغير', 100, 1)">+</button>
         </div>
     </div>
+
     <div class="item">
         <img src="ss.jpeg" alt="سلاط فواكه كبير">
-        <div class="item-details"><h3>سلاط فواكه (حجم كبير)</h3><span class="item-price">150 أوقية</span></div>
+        <div class="item-details"><h3>سلاط فواكه (كبير)</h3><span class="item-price">150 أوقية</span></div>
         <div class="controls">
             <button class="btn-qty btn-minus" onclick="updateQty('سلاط فواكه كبير', 150, -1)">-</button>
             <span class="qty-val" id="qty-سلاط فواكه كبير">0</span>
