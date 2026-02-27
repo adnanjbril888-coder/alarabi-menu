@@ -6,7 +6,7 @@
     <title>مطعم العربي - المنيو الرسمي</title>
     <style>
         :root { --main: #e67e22; --dark: #2c3e50; --price: #27ae60; --whatsapp: #25d366; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 90px; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 120px; }
         header { background: var(--dark); color: white; text-align: center; padding: 30px; border-bottom: 4px solid var(--main); }
         .container { padding: 15px; max-width: 600px; margin: auto; }
         .section-title { color: var(--dark); border-right: 4px solid var(--main); padding-right: 10px; margin: 25px 0 15px; font-weight: bold; font-size: 1.3rem; }
@@ -16,18 +16,23 @@
         .item-details h3 { margin: 0; font-size: 1.1rem; color: #333; }
         .item-price { color: var(--price); font-weight: bold; display: block; margin-top: 5px; font-size: 1.1rem; }
         
-        /* التنسيق الجديد لأزرار الزائد والناقص */
         .controls { display: flex; align-items: center; background: #f8f9fa; border-radius: 10px; margin-left: 10px; border: 1px solid #ddd; overflow: hidden; }
         .btn-qty { background: var(--main); color: white; border: none; width: 35px; height: 35px; cursor: pointer; font-size: 1.2rem; font-weight: bold; }
         .btn-minus { background: #95a5a6; }
         .qty-val { padding: 0 12px; font-weight: bold; min-width: 20px; text-align: center; color: var(--dark); }
 
-        .cart-bar { position: fixed; bottom: 15px; left: 5%; width: 90%; background: var(--whatsapp); color: white; padding: 15px; border-radius: 50px; text-align: center; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 999; }
+        .cart-bar { position: fixed; bottom: 80px; left: 5%; width: 90%; background: var(--whatsapp); color: white; padding: 15px; border-radius: 50px; text-align: center; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 999; }
         .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
         .modal-content { background: white; margin: 10% auto; padding: 25px; width: 85%; max-width: 400px; border-radius: 25px; text-align: center; }
         .payment-info { background: #fff9f0; padding: 15px; border-radius: 15px; border: 1px dashed var(--main); margin-bottom: 15px; }
         .alert-box { background: #fff3cd; color: #856404; padding: 12px; border-radius: 10px; font-size: 0.9rem; margin: 15px 0; border: 1px solid #ffeeba; }
         .payment-option { display: block; width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+
+        /* تنسيق توقيع المبرمج */
+        footer { text-align: center; padding: 20px 0; margin-top: 30px; border-top: 1px solid #ddd; }
+        .dev-tag { font-size: 0.85rem; color: #7f8c8d; display: inline-block; text-decoration: none; transition: 0.3s; }
+        .dev-tag strong { color: var(--dark); border-bottom: 2px solid var(--main); }
+        .dev-tag:hover { transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -153,6 +158,12 @@
             <button class="btn-qty" onclick="updateQty('عصير بنان', 100, 1)">+</button>
         </div>
     </div>
+
+    <footer>
+        <a href="tel:+22232552598" class="dev-tag">
+            تم التطوير بواسطة المبرمج <strong>عدنان</strong> 🛠️ <br> 📞 +222 32552598
+        </a>
+    </footer>
 </div>
 
 <div id="cart-bar" class="cart-bar" onclick="openPaymentModal()">
