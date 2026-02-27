@@ -5,13 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مطعم العربي - المنيو الرسمي</title>
     <style>
-        :root { --main: #e67e22; --dark: #2c3e50; --price: #27ae60; --whatsapp: #25d366; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 120px; }
-        header { background: var(--dark); color: white; text-align: center; padding: 30px; border-bottom: 4px solid var(--main); }
-        .container { padding: 15px; max-width: 600px; margin: auto; }
-        .section-title { color: var(--dark); border-right: 4px solid var(--main); padding-right: 10px; margin: 25px 0 15px; font-weight: bold; font-size: 1.3rem; }
+        :root { 
+            --main: #e67e22; 
+            --dark: #2c3e50; 
+            --price: #27ae60; 
+            --whatsapp: #25d366; 
+            --header-grad: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+        }
         
-        /* ضبط متطور لتوحيد حجم العناصر والصور */
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 120px; }
+        
+        /* تصميم الهيدر الجديد والملفت */
+        header { 
+            background: var(--header-grad); 
+            color: white; 
+            text-align: center; 
+            padding: 40px 20px; 
+            border-bottom: 5px solid var(--main);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 { 
+            margin: 0; 
+            font-size: 2.5rem; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+            background: linear-gradient(to bottom, #ffffff, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        header p { 
+            margin-top: 10px; 
+            font-size: 1.1rem; 
+            color: #ecf0f1; 
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* لمسة جمالية للهيدر */
+        header::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230,126,34,0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .container { padding: 15px; max-width: 600px; margin: auto; position: relative; z-index: 2; }
+        
+        .section-title { 
+            color: var(--dark); 
+            border-right: 5px solid var(--main); 
+            padding-right: 15px; 
+            margin: 30px 0 20px; 
+            font-weight: bold; 
+            font-size: 1.4rem;
+            background: #fff;
+            padding: 10px;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        }
+        
         .item { 
             background: white; 
             border-radius: 15px; 
@@ -21,39 +82,40 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
             align-items: center; 
             border: 1px solid #eee; 
-            height: 110px; /* توحيد ارتفاع كل البطاقات */
+            height: 115px; 
         }
         
         .item img { 
-            width: 110px; 
-            height: 110px; 
-            object-fit: cover; /* لقص الصورة بشكل احترافي لتملأ المربع */
+            width: 115px; 
+            height: 115px; 
+            object-fit: cover; 
             aspect-ratio: 1 / 1; 
-            flex-shrink: 0; /* منع الصورة من الانضغاط */
+            flex-shrink: 0; 
             background-color: #fff;
         }
 
         .item-details { padding: 12px; flex: 1; overflow: hidden; }
-        .item-details h3 { margin: 0; font-size: 1.05rem; color: #333; }
-        .item-details p { margin: 0; font-size: 0.8rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .item-price { color: var(--price); font-weight: bold; display: block; margin-top: 5px; font-size: 1.1rem; }
+        .item-details h3 { margin: 0; font-size: 1.1rem; color: #333; }
+        .item-details p { margin: 2px 0; font-size: 0.8rem; color: #666; }
+        .item-price { color: var(--price); font-weight: bold; display: block; margin-top: 5px; font-size: 1.15rem; }
         
-        .controls { display: flex; align-items: center; background: #f8f9fa; border-radius: 10px; margin-left: 10px; border: 1px solid #ddd; overflow: hidden; flex-shrink: 0; }
-        .btn-qty { background: var(--main); color: white; border: none; width: 35px; height: 35px; cursor: pointer; font-size: 1.2rem; font-weight: bold; }
-        .btn-minus { background: #95a5a6; }
-        .qty-val { padding: 0 10px; font-weight: bold; min-width: 20px; text-align: center; color: var(--dark); }
+        .controls { display: flex; align-items: center; background: #f8f9fa; border-radius: 12px; margin-left: 10px; border: 1px solid #ddd; overflow: hidden; flex-shrink: 0; }
+        .btn-qty { background: var(--main); color: white; border: none; width: 38px; height: 38px; cursor: pointer; font-size: 1.3rem; font-weight: bold; }
+        .btn-minus { background: #bdc3c7; }
+        .qty-val { padding: 0 12px; font-weight: bold; min-width: 25px; text-align: center; color: var(--dark); font-size: 1.1rem; }
 
-        .cart-bar { position: fixed; bottom: 80px; left: 5%; width: 90%; background: var(--whatsapp); color: white; padding: 15px; border-radius: 50px; text-align: center; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 999; }
-        .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
-        .modal-content { background: white; margin: 10% auto; padding: 25px; width: 85%; max-width: 400px; border-radius: 25px; text-align: center; }
+        .cart-bar { position: fixed; bottom: 80px; left: 5%; width: 90%; background: var(--whatsapp); color: white; padding: 18px; border-radius: 50px; text-align: center; font-weight: bold; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3); display: none; z-index: 999; font-size: 1.2rem; }
+        
+        .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+        .modal-content { background: white; margin: 15% auto; padding: 25px; width: 85%; max-width: 400px; border-radius: 25px; text-align: center; }
         .payment-info { background: #fff9f0; padding: 15px; border-radius: 15px; border: 1px dashed var(--main); margin-bottom: 15px; }
         .alert-box { background: #fff3cd; color: #856404; padding: 12px; border-radius: 10px; font-size: 0.9rem; margin: 15px 0; border: 1px solid #ffeeba; }
-        .payment-option { display: block; width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+        .payment-option { display: block; width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 15px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: 0.2s; }
+        .payment-option:active { transform: scale(0.98); }
 
-        footer { text-align: center; padding: 20px 0; margin-top: 30px; border-top: 1px solid #ddd; }
-        .dev-tag { font-size: 0.9rem; color: #7f8c8d; display: inline-block; text-decoration: none; transition: 0.3s; padding: 10px; }
-        .dev-tag strong { color: var(--dark); border-bottom: 2px solid var(--main); }
-        .dev-tag:hover { transform: translateY(-3px); color: var(--whatsapp); }
+        footer { text-align: center; padding: 30px 0; margin-top: 40px; border-top: 1px solid #ddd; background: #fff; }
+        .dev-tag { font-size: 0.95rem; color: #7f8c8d; display: inline-block; text-decoration: none; transition: 0.3s; padding: 10px; }
+        .dev-tag strong { color: var(--main); border-bottom: 2px solid var(--dark); }
     </style>
 </head>
 <body>
@@ -64,7 +126,7 @@
 </header>
 
 <div class="container">
-    <div class="section-title">السندوتشات</div>
+    <div class="section-title">🥪 السندوتشات</div>
     <div class="item">
         <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=400" alt="شاورما">
         <div class="item-details"><h3>شاورما العربي</h3><span class="item-price">120 أوقية</span></div>
@@ -96,16 +158,6 @@
     </div>
 
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="همبرجر">
-        <div class="item-details"><h3>همبرجر</h3><span class="item-price">100 أوقية</span></div>
-        <div class="controls">
-            <button class="btn-qty btn-minus" onclick="updateQty('همبرجر', 100, -1)">-</button>
-            <span class="qty-val" id="qty-همبرجر">0</span>
-            <button class="btn-qty" onclick="updateQty('همبرجر', 100, 1)">+</button>
-        </div>
-    </div>
-
-    <div class="item">
         <img src="adnan3.jpeg" alt="تاكوس">
         <div class="item-details"><h3>تاكوس</h3><span class="item-price">150 أوقية</span></div>
         <div class="controls">
@@ -115,7 +167,7 @@
         </div>
     </div>
 
-    <div class="section-title">قسم الدجاج المشوي</div>
+    <div class="section-title">🍗 قسم الدجاج المشوي</div>
     <div class="item">
         <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400" alt="دجاجة كاملة">
         <div class="item-details"><h3>دجاجة كاملة</h3><span class="item-price">450 أوقية</span></div>
@@ -123,16 +175,6 @@
             <button class="btn-qty btn-minus" onclick="updateQty('دجاجة كاملة', 450, -1)">-</button>
             <span class="qty-val" id="qty-دجاجة كاملة">0</span>
             <button class="btn-qty" onclick="updateQty('دجاجة كاملة', 450, 1)">+</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400" alt="نص دجاجة">
-        <div class="item-details"><h3>نص دجاجة</h3><span class="item-price">230 أوقية</span></div>
-        <div class="controls">
-            <button class="btn-qty btn-minus" onclick="updateQty('نص دجاجة', 230, -1)">-</button>
-            <span class="qty-val" id="qty-نص دجاجة">0</span>
-            <button class="btn-qty" onclick="updateQty('نص دجاجة', 230, 1)">+</button>
         </div>
     </div>
 
@@ -146,7 +188,7 @@
         </div>
     </div>
 
-    <div class="section-title">قسم المأكولات البحرية 🦐</div>
+    <div class="section-title">🦐 المأكولات البحرية</div>
     <div class="item">
         <img src="sss.jpeg" alt="بلاط كريفيت">
         <div class="item-details">
@@ -161,18 +203,7 @@
         </div>
     </div>
 
-    <div class="section-title">البيتزا</div>
-    <div class="item">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="بيتزا">
-        <div class="item-details"><h3>بيتزا (لحم أو دجاج)</h3><span class="item-price">200 أوقية</span></div>
-        <div class="controls">
-            <button class="btn-qty btn-minus" onclick="updateQty('بيتزا', 200, -1)">-</button>
-            <span class="qty-val" id="qty-بيتزا">0</span>
-            <button class="btn-qty" onclick="updateQty('بيتزا', 200, 1)">+</button>
-        </div>
-    </div>
-
-    <div class="section-title">قسم العصائر وسلطات الفواكه 🍹</div>
+    <div class="section-title">🍹 العصائر والسلطات</div>
     <div class="item">
         <img src="adnan1.jpeg" alt="عصير برتقال">
         <div class="item-details"><h3>عصير برتقال طازج</h3><span class="item-price">100 أوقية</span></div>
@@ -184,57 +215,7 @@
     </div>
 
     <div class="item">
-        <img src="adnan2.jpeg" alt="عصير أفوكا">
-        <div class="item-details"><h3>عصير افوكا</h3><span class="item-price">100 أوقية</span></div>
-        <div class="controls">
-            <button class="btn-qty btn-minus" onclick="updateQty('عصير افوكا', 100, -1)">-</button>
-            <span class="qty-val" id="qty-عصير افوكا">0</span>
-            <button class="btn-qty" onclick="updateQty('عصير افوكا', 100, 1)">+</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <img src="adnan4.jpeg" alt="عصير بنان">
-        <div class="item-details"><h3>عصير بنان</h3><span class="item-price">100 أوقية</span></div>
-        <div class="controls">
-            <button class="btn-qty btn-minus" onclick="updateQty('عصير بنان', 100, -1)">-</button>
-            <span class="qty-val" id="qty-عصير بنان">0</span>
-            <button class="btn-qty" onclick="updateQty('عصير بنان', 100, 1)">+</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <img src="ff.jpeg" alt="عصير فريز">
-        <div class="item-details"><h3>عصير فريز</h3><span class="item-price">100 أوقية</span></div>
-        <div class="controls">
-            <button class="btn-qty btn-minus" onclick="updateQty('عصير فريز', 100, -1)">-</button>
-            <span class="qty-val" id="qty-عصير فريز">0</span>
-            <button class="btn-qty" onclick="updateQty('عصير فريز', 100, 1)">+</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <img src="kk.jpeg" alt="عصير كوكتيل">
-        <div class="item-details"><h3>عصير كوكتيل</h3><span class="item-price">100 أوقية</span></div>
-        <div class="controls">
-            <button class="btn-qty btn-minus" onclick="updateQty('عصير كوكتيل', 100, -1)">-</button>
-            <span class="qty-val" id="qty-عصير كوكتيل">0</span>
-            <button class="btn-qty" onclick="updateQty('عصير كوكتيل', 100, 1)">+</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <img src="ss.jpeg" alt="سلاط فواكه صغير">
-        <div class="item-details"><h3>سلاط فواكه (صغير)</h3><span class="item-price">100 أوقية</span></div>
-        <div class="controls">
-            <button class="btn-qty btn-minus" onclick="updateQty('سلاط فواكه صغير', 100, -1)">-</button>
-            <span class="qty-val" id="qty-سلاط فواكه صغير">0</span>
-            <button class="btn-qty" onclick="updateQty('سلاط فواكه صغير', 100, 1)">+</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <img src="ss.jpeg" alt="سلاط فواكه كبير">
+        <img src="ss.jpeg" alt="سلاط فواكه">
         <div class="item-details"><h3>سلاط فواكه (كبير)</h3><span class="item-price">150 أوقية</span></div>
         <div class="controls">
             <button class="btn-qty btn-minus" onclick="updateQty('سلاط فواكه كبير', 150, -1)">-</button>
@@ -245,21 +226,20 @@
 
     <footer>
         <a href="https://wa.me/22232552598" class="dev-tag">
-            تم التطوير بواسطة المبرمج <strong>عدنان</strong> 🛠️ <br> تواصل عبر الواتساب
+            تم التطوير بكل ❤️ بواسطة المبرمج <strong>عدنان</strong> 🛠️
         </a>
     </footer>
 </div>
 
 <div id="cart-bar" class="cart-bar" onclick="openPaymentModal()">
-    تأكيد الطلب - الإجمالي: <span id="total-price">0</span> أوقية
+    🛒 تأكيد الطلب (<span id="total-price">0</span> أوقية)
 </div>
 
 <div id="paymentModal" class="modal">
     <div class="modal-content">
         <h2 style="color: var(--dark);">تفاصيل الدفع</h2>
-        <div class="payment-info">رقم الدفع الموحد:<br><strong style="font-size: 1.6rem; color: #d35400;">48881186</strong></div>
-        <div class="alert-box">📢 <strong>تنبيه:</strong> يرجى إرسال <strong>لقطة شاشة</strong> للوصل عند فتح الواتساب لتأكيد طلبك.</div>
-        <p style="font-weight: bold;">اختر تطبيق التحويل:</p>
+        <div class="payment-info">رقم الدفع الموحد:<br><strong style="font-size: 1.8rem; color: #d35400;">48881186</strong></div>
+        <div class="alert-box">📢 يرجى إرسال <strong>لقطة شاشة</strong> للوصل عند فتح الواتساب.</div>
         <button class="payment-option" style="background: #03a9f4; color: white;" onclick="finalizeOrder('بنكيلي')">بنكيلي 💳</button>
         <button class="payment-option" style="background: #4caf50; color: white;" onclick="finalizeOrder('مصرفي')">مصرفي 🏦</button>
         <button class="payment-option" style="background: #ff9800; color: white;" onclick="finalizeOrder('سداد')">سداد 📱</button>
@@ -275,7 +255,6 @@
         if (!basket[id]) basket[id] = { p: price, q: 0 };
         basket[id].q += change;
         if (basket[id].q < 0) basket[id].q = 0;
-        
         document.getElementById('qty-'+id).innerText = basket[id].q;
         refreshBar();
     }
@@ -308,7 +287,6 @@
             }
         }
         if(!hasItems) return alert("الرجاء اختيار وجبة أولاً");
-        
         message += "--------------------------\n";
         message += "💰 الإجمالي: " + document.getElementById('total-price').innerText + " أوقية جديدة\n";
         message += "💳 دفع عبر: " + method + "\n";
